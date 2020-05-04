@@ -43,10 +43,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sensors.exynos4
 
-# OTA Update
-PRODUCT_PACKAGES += \
-    OTAUpdates
-
 # Snap Camera
 # PRODUCT_PACKAGES += \
 #    Snap
