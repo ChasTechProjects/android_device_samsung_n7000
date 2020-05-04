@@ -16,69 +16,63 @@
 
 LOCAL_PATH := device/samsung/n7000
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
 # Include common makefile
 $(call inherit-product, device/samsung/galaxys2-common/common.mk)
+
+# Rootdir
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc
+
+# TWRP
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
+
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # This device is xhdpi.
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_LOCALES += xhdpi
 
-#Bootanimation
+# Bootanimation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 800
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320 \
-	net.tethering.noprovisioning=true
+    net.tethering.noprovisioning=true
 
 # Netmgr dependency on libstlport
 PRODUCT_PACKAGES += \
-	libstlport
+    libstlport
 
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.exynos4
 
-# Snap Camera
-# PRODUCT_PACKAGES += \
-#    Snap
+# GPS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
+
+PRODUCT_PACKAGES += \
+    gps.exynos4 \
+    libdmitry
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/usr/keylayout/max8997-muic.kl:system/usr/keylayout/max8997-muic.kl \
-    $(LOCAL_PATH)/usr/keylayout/melfas-touchkey.kl:system/usr/keylayout/melfas-touchkey.kl \
-    $(LOCAL_PATH)/usr/keylayout/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl \
-    $(LOCAL_PATH)/usr/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
-    $(LOCAL_PATH)/usr/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
+    $(LOCAL_PATH)/configs/input/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/max8997-muic.kl:system/usr/keylayout/max8997-muic.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/melfas-touchkey.kl:system/usr/keylayout/melfas-touchkey.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
 
 # Idc
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/usr/idc/melfas_ts.idc:system/usr/idc/melfas_ts.idc \
-    $(LOCAL_PATH)/usr/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
-    $(LOCAL_PATH)/usr/idc/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc \
-    $(LOCAL_PATH)/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
-
-# Gps
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.gps.rc:root/init.gps.rc \
-    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
-
-PRODUCT_PACKAGES += \
-	gps.exynos4 \
-	libdmitry
-
-# TWRP
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/twrp.fstab:recovery/root/etc/twrp.fstab
-
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0 \
-    ro.adb.secure=0 \
-    persist.service.adb.enable=1
+    $(LOCAL_PATH)/configs/input/idc/melfas_ts.idc:system/usr/idc/melfas_ts.idc \
+    $(LOCAL_PATH)/configs/input/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
+    $(LOCAL_PATH)/configs/input/idc/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc \
+    $(LOCAL_PATH)/configs/input/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
 $(call inherit-product-if-exists, vendor/samsung/n7000/n7000-vendor.mk)

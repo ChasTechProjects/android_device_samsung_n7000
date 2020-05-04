@@ -19,18 +19,16 @@
 
 -include device/samsung/galaxys2-common/BoardCommonConfig.mk
 
-TARGET_BOARD_INFO_FILE := device/samsung/n7000/board-info.txt
+TARGET_BOARD_INFO_FILE := device/samsung/n7000/configs/board-info.txt
 
 # CM overlay to  frameworks/opt/hardware/src/
-BOARD_HARDWARE_CLASS += device/samsung/n7000/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/n7000/configs/cmhw
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/n7000/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/n7000/configs/bluetooth
 
 # Inline kernel building
-TARGET_KERNEL_SOURCE := kernel/samsung/tw_n7000
-# TARGET_KERNEL_SOURCE := kernel/samsung/smdk4210
-# TARGET_KERNEL_SOURCE := kernel/samsung/twexp
+TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
 
 TARGET_KERNEL_CONFIG := lineageos_n7000_defconfig
 
