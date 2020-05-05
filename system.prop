@@ -2,17 +2,13 @@
 # system.prop for n7000
 #
 
+# RIL
 rild.libpath=/system/lib/libsecril-shim.so
 rild.libargs=-d /dev/ttyS0
 
-# Primary storage is physical
-ro.vold.primary_physical=1
+# Media
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
 
-# disable atlas service
-config.disable_atlas=true
-
-# Dalvik
-persist.sys.dalvik.multithread=true
-# cache partition is to small for dalvik-cache
-dalvik.vm.dexopt-data-only=1
-dalvik.vm.dex2oat-Xmx=256m
+# EGL
+ro.egl.destroy_after_detach=true
