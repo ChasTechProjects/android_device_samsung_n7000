@@ -38,7 +38,6 @@ void shim_set_ref_location(const AGpsRefLocation *agps_reflocation, size_t sz_st
 		ALOGE("%s: AGpsRefLocation is too small, bailing out!", __func__);
 		return;
 	}
-	ALOGE("%s: shimming AGpsRefLocation", __func__);
 	// the two structs are identical, so this is ok
 	memcpy(&vendor_ref, agps_reflocation, sizeof(AGpsRefLocationNoLTE));
 	vendor_set_ref_location(&vendor_ref, sizeof(AGpsRefLocationNoLTE));
@@ -47,12 +46,10 @@ void shim_set_ref_location(const AGpsRefLocation *agps_reflocation, size_t sz_st
 }
 
 const void* shim_get_extension(const char* name) {
-	ALOGE("%s(%s)", __func__, name);
 	if (strcmp(name, AGPS_RIL_INTERFACE) == 0) {
 		// RIL interface
 		AGpsRilInterface *ril = (AGpsRilInterface*)vendor_get_extension(name);
 		// now we shim the ref_location callback
-		ALOGE("%s: shimming RIL ref_location callback", __func__);
 		vendor_set_ref_location = ril->set_ref_location;
 		ril->set_ref_location = shim_set_ref_location;
 		return ril;
@@ -62,7 +59,6 @@ const void* shim_get_extension(const char* name) {
 }
 
 const GpsInterface* shim_get_gps_interface(struct gps_device_t* dev) {
-	ALOGE("%s: shimming vendor get_extension", __func__);
 	GpsInterface *halInterface = vendor_get_gps_interface(dev);
 
 	vendor_get_extension = halInterface->get_extension;
@@ -96,7 +92,6 @@ static int open_gps(const struct hw_module_t* module, char const* name,
 		ALOGE("Real GPS open method failed: %d", result);
 		goto dl_err;
 	}
-	ALOGE("Successfully loaded real GPS hal, shimming get_gps_interface...");
 	// now, we shim hw_device_t
 	vendor_get_gps_interface = (*gps)->get_gps_interface;
 	(*gps)->get_gps_interface = &shim_get_gps_interface;
@@ -116,7 +111,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
 	.module_api_version = 1,
 	.hal_api_version = 0,
 	.id = GPS_HARDWARE_MODULE_ID,
-	.name = "BCM451x GPS shim",
+	.name = "BCM4751 GPS shim",
 	.author = "The CyanogenMod Project",
 	.methods = &gps_module_methods
 };
