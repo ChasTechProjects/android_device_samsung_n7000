@@ -11,7 +11,7 @@
  *
  *
  * Problems:
- * 1. Nexus 10's GPS library was made to work with android L
+ * 1. BCM4751's GPS library was made to work with android L
  * 2. Android M changed a few things around that make it not work
  *   a. Sensor manager API changed in a few places
  * 3. Due to these now-missing unresolved symbols GPS library will not load or run
@@ -156,7 +156,7 @@ void _ZN7android13SensorManager16createEventQueueEv(void **retVal, void *sensorM
  */
 void libEvtLoading(void)
 {
-    ALOGI("Nexus 10 GPS interposition library loaded. Your GPS should work in M now.");
+	//library is loaded, do nothing!
 }
 
 /*
@@ -166,7 +166,6 @@ void libEvtLoading(void)
  */
 void libEvtUnloading(void)
 {
-    ALOGI("Nexus 10 GPS interposition library unloading. Goodbye...");
     if (_ZN7android9SingletonINS_13SensorManagerEE9sInstanceE) {
         //if an instance stil exists, free it by calling the destructor, just to be throrough
         _ZN7android13SensorManagerD1Ev(_ZN7android9SingletonINS_13SensorManagerEE9sInstanceE);
