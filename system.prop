@@ -2,20 +2,11 @@
 # system.prop for n7000
 #
 
+# RIL
 rild.libpath=/vendor/lib/libsecril-shim.so
 rild.libargs=-d /dev/ttyS0
 ro.ril.telephony.mqanelements=5 
 ro.ril.telephony.nstrings=4
 
-# Primary storage is physical
-ro.vold.primary_physical=1
-
-# EGL blobs crash on screen off
+# EGL
 ro.egl.destroy_after_detach=true
-
-# disable atlas service
-config.disable_atlas=true
-
-# Dalvik
-# cache partition is to small for dalvik-cache
-dalvik.vm.dexopt-data-only=1
