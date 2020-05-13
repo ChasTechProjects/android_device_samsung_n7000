@@ -55,7 +55,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
 
 PRODUCT_PACKAGES += \
-    gps.exynos4 \
     libdmitry
 
 # Keylayout
