@@ -26,6 +26,10 @@ $(call inherit-product, vendor/pa/config/common_full_phone.mk)
 
 # Bootanimation
 TARGET_BOOT_ANIMATION_RES := 720
+
+# GAPPS
+TARGET_DISABLES_GAPPS := true
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := n7000
 PRODUCT_NAME := pa_n7000
