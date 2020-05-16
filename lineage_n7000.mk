@@ -21,10 +21,18 @@ PRODUCT_RELEASE_NAME := GT-N7000
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Inherit device configuration.
+$(call inherit-product, device/samsung/n7000/n7000.mk)
+
+# Bootanimation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 800
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := n7000
 PRODUCT_NAME := lineage_n7000
 PRODUCT_BRAND := Samsung
+PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := GT-N7000
 
 # Set build fingerprint / ID / Product Name ect.
