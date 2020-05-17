@@ -42,13 +42,6 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     sensors.exynos4
 
-# GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
-
-PRODUCT_PACKAGES += \
-    libdmitry
-
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/input/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
