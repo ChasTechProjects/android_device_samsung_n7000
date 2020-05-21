@@ -17,8 +17,8 @@
 # Release name
 PRODUCT_RELEASE_NAME := GT-N7000
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Potato stuff.
+$(call inherit-product, vendor/potato/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit device configuration.
@@ -30,7 +30,7 @@ TARGET_SCREEN_WIDTH := 800
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := n7000
-PRODUCT_NAME := lineage_n7000
+PRODUCT_NAME := potato_n7000
 PRODUCT_BRAND := Samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := GT-N7000
