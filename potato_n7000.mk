@@ -27,6 +27,7 @@ $(call inherit-product, device/samsung/n7000/n7000.mk)
 # Bootanimation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 800
+TARGET_BOOTANIM_LOW_RES := true
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := n7000
