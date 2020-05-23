@@ -29,6 +29,9 @@ TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 800
 TARGET_BOOTANIM_LOW_RES := true
 
+# SoundPicker
+SOUNDPICKER_10 := true
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := n7000
 PRODUCT_NAME := potato_n7000
