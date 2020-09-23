@@ -18,7 +18,8 @@
 PRODUCT_RELEASE_NAME := GT-N7000
 
 # Inherit some common Havoc stuff.
-$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
+$(call inherit-product, vendor/havoc/config/common.mk)
+$(call inherit-product, vendor/havoc/config/telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit device configuration.
