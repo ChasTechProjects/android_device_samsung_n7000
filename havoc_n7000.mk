@@ -22,6 +22,9 @@ $(call inherit-product, vendor/havoc/config/common.mk)
 $(call inherit-product, vendor/havoc/config/telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Havoc specifics
+WITH_HAVOC_CHARGER := true
+
 # Inherit device configuration.
 $(call inherit-product, device/samsung/n7000/n7000.mk)
 
