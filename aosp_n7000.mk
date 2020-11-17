@@ -17,15 +17,15 @@
 # Release name
 PRODUCT_RELEASE_NAME := GT-N7000
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common AOSP stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/n7000/full_n7000.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := n7000
-PRODUCT_NAME := lineage_n7000
+PRODUCT_NAME := aosp_n7000
 PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := GT-N7000
 
